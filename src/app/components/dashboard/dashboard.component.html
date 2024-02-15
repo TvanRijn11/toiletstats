@@ -1,0 +1,106 @@
+<div class="flex justify-center">
+    <div class="w-full h-full">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-5 py-2">
+            <!-- Total Today -->
+            
+            <app-stats
+                statSubtitle="Totale tijd vandaag"
+                statTitle="{{stats.last_day_total_time}} minuten"
+                statArrow="up"
+                statPercent="{{day_total_time_percentage}}"
+                [statPercentColor]="isDayTotalTimePositive"
+                statDescripiron="Since last day"
+                statIconName="far fa-chart-bar"
+                statIconColor="bg-red-500"
+            ></app-stats>
+
+            <!-- avg Today -->
+            <app-stats
+                statSubtitle="Gemiddelde tijd vandaag"
+                statTitle="{{stats.last_day_average_time}} minuten"
+                statArrow="up"
+                statPercent="{{day_average_time_percentage}}"
+                [statPercentColor]="isDayAverageTimePositive"
+                statDescripiron="Since last day"
+                statIconName="far fa-chart-bar"
+                statIconColor="bg-red-500"
+            ></app-stats>
+
+            <!-- visits Today -->
+            <app-stats
+                statSubtitle="Aantal bezoeken vandaag"
+                statTitle="{{stats.last_day_count}} bezoeken"
+                statArrow="up"
+                statPercent="{{day_percentage}}"
+                [statPercentColor]="isDayPositive"
+                statDescripiron="Since last day"
+                statIconName="far fa-chart-bar"
+                statIconColor="bg-red-500"
+            ></app-stats>
+            
+        </div>
+        <app-graph [visits]="visits"></app-graph>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 p-2">
+            <!-- Total This Month -->
+            <app-stats
+                statSubtitle="Totale tijd deze maand"
+                statTitle="{{stats.last_month_total_time}} minuten"
+                statArrow="up"
+                statPercent="{{month_total_time_percentage}}"
+                [statPercentColor]="isMonthTotalTimePositive"
+                statDescripiron="Since last month"
+                statIconName="far fa-chart-bar"
+                statIconColor="bg-red-500"
+            ></app-stats>
+
+            <!-- Avg This Month -->
+            <app-stats
+                statSubtitle="Gemiddelde tijd deze maand"
+                statTitle="{{stats.last_month_average_time}} minuten"
+                statArrow="up"
+                statPercent="{{month_average_time_percentage}}"
+                [statPercentColor]="isMonthAverageTimePositive"
+                statDescripiron="Since last month"
+                statIconName="far fa-chart-bar"
+                statIconColor="bg-red-500"
+            ></app-stats>
+            
+            <!-- Visits This Month -->
+            <app-stats
+                statSubtitle="Aantal bezoeken deze maand"
+                statTitle="{{stats.last_month_count}} bezoeken"
+                statArrow="up"
+                statPercent="{{month_percentage}}"
+                [statPercentColor]="isMonthPositive"
+                statDescripiron="Since last month"
+                statIconName="far fa-chart-bar"
+                statIconColor="bg-red-500"
+            ></app-stats>
+            
+            <!-- Total All Time -->
+            <app-stats
+                statSubtitle="Totale tijd altijd"
+                statTitle="{{stats.all_time_total_time}} minuten"
+                statDescripiron="Since last month"
+                statIconName="far fa-chart-bar"
+                statIconColor="bg-red-500"
+            ></app-stats>
+
+            <!-- Avg All Time -->
+            <app-stats
+                statSubtitle="Gemiddelde tijd altijd"
+                statTitle="{{stats.all_time_average_time}} minuten"
+                statIconName="far fa-chart-bar"
+                statIconColor="bg-red-500"
+            ></app-stats>
+            
+            <!-- Visits All Time -->
+            <app-stats
+                statSubtitle="Aantal bezoeken altijd"
+                statTitle="{{stats.all_time_count}} bezoeken"
+                statIconName="far fa-chart-bar"
+                statIconColor="bg-red-500"
+            ></app-stats>
+        </div>
+    </div>
+</div>

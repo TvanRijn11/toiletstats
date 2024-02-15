@@ -1,0 +1,53 @@
+
+<div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+  <div class="rounded-t px-4 py-2 border-0">
+        <h2 class="text-blueGray text-sm uppercase font-bold">Toilet bezoeken</h2>
+  </div>
+  <div class="block w-full overflow-x-auto">
+    <!-- Projects table -->
+    <table class="items-center w-full bg-transparent border-collapse">
+      <thead>
+        <tr>
+          <th (click)="sortBy('id')"
+            [class.sorted]="sortedBy === 'id'"
+            class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left cursor-pointer"
+          >
+            <span class="sort-container">
+              <span class="sort-text">Datum</span>
+              <span *ngIf="sortedBy === 'id'" class="arrow-icon text-[#FFCFE7]" [ngStyle]="{transform: sortOrder === -1 ? 'rotate(180deg)' : 'rotate(0deg)'}">&#x25B2;</span>
+            </span>
+          </th>
+
+
+          <th 
+            class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left cursor-pointer"
+          >
+            Tijd van bezoek
+          </th>
+          <th (click)="sortBy('duration')"
+            [class.sorted]="sortedBy === 'duration'"
+            class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left cursor-pointer"
+          >
+          <span class="sort-container">
+            <span class="sort-Duur">Duur </span>
+            <span *ngIf="sortedBy === 'duration'" class="arrow-icon text-[#FFCFE7]" [ngStyle]="{transform: sortOrder === -1 ? 'rotate(180deg)' : 'rotate(0deg)'}">&#x25B2;</span>
+          </span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let visit of visits" class="hover:bg-[#fff8fb]">
+          <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left ">
+            {{ visit.id.getDate() }}-{{ visit.id.getMonth() + 1 }}-{{ visit.id.getFullYear() }}
+          </td>
+          <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+            {{ ('0' + visit.id.getHours()).slice(-2) }}:{{ ('0' + visit.id.getMinutes()).slice(-2) }}:{{ ('0' + visit.id.getSeconds()).slice(-2) }}
+          </td>
+          <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+            {{ visit.duration | number: '1.2-2' }} minuten
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

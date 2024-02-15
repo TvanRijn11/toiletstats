@@ -1,0 +1,100 @@
+<nav
+  class="md:left-0  md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden shadow-xl bg-white flex flex-wrap  justify-between relative md:w-64 z-10 py-4 px-6"
+>
+  <div
+    class="md:flex-col md:min-h-full md:flex-nowrap px-0 flex flex-wrap items-center justify-between w-full mx-auto"
+  >
+    <!-- Toggler -->
+    <button
+      class="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
+      type="button"
+      (click)="toggleCollapseShow('bg-white m-2 py-3 px-6')"
+    >
+      <fa-icon [icon]="faBars"></fa-icon>
+    </button>
+    <a
+      class="md:block md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-xl uppercase font-bold p-4 px-0"
+    >
+    <img src="../assets/poop.png" class="w-8" alt="poop">  
+    <a class="hidden sm:block" [ngClass]="{ 'hidden': collapseSmall, 'bg-white m-2 py-3 px-6': !collapseSmall }"> Toiletstats </a>
+      
+    </a>
+    <!-- Collapse -->
+    <div
+      class="md:flex md:flex-col md:items-stretch md:opacity-100 md:relative md:mt-4 md:shadow-none shadow absolute top-0 left-0 right-0 z-40 overflow-y-auto overflow-x-hidden h-auto items-center flex-1 rounded"
+      [ngClass]="collapseShow"
+    >
+      <!-- Collapse header -->
+      <div
+        class="md:min-w-full md:hidden block pb-4 mb-4"
+      >
+        <div class="flex flex-wrap">
+          <div class="w-1/2 flex justify-start">
+            <span class="px-3 py-3 text-xs uppercase font-bold">Menu</span>
+          </div>
+          <div class="w-1/2 flex justify-end">
+            <button
+              type="button"
+              class="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
+              (click)="toggleCollapseShow('hidden')"
+            >
+            <fa-icon [icon]="faTimes"></fa-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <hr class="my-4 md:min-w-full" />
+      <!-- Navigation -->
+
+      <ul class="md:flex-col md:min-w-full gap-4 flex flex-col list-none items-baseline">
+        <li class="items-center">
+          <a [routerLink]="['/dashboard']"
+          class="text-md uppercase py-3 font-bold"
+          routerLinkActive
+          #adminDashboard="routerLinkActive"
+          [ngClass]="
+            adminDashboard.isActive
+              ? 'text-[#FF90C9] hover:text-[#ff58af]'
+              : 'text-blueGray-700 hover:text-[#ffd1e9]'
+          ">
+            <fa-icon [icon]="faGauge"></fa-icon>
+            <a
+              [ngClass]="{ 'hidden': collapseSmall, 'bg-white  py-3 px-1': !collapseSmall }"
+            >
+            
+              Dashboard
+            </a>
+          </a>
+        </li>
+
+        <li class="items-center">
+          <a
+            [routerLink]="['bezoeken']"
+            class="text-md uppercase py-3 font-bold"
+            routerLinkActive
+            #adminSettings="routerLinkActive"
+            [ngClass]="
+              adminSettings.isActive
+                ? 'text-[#FF90C9] hover:text-[#ff58af]'
+                : 'text-blueGray-700 hover:text-[#ffd1e9]'
+            "
+          >
+          <fa-icon [icon]="faTable"></fa-icon>
+          <a
+            [ngClass]="{ 'hidden': collapseSmall, 'bg-white py-3 px-1': !collapseSmall }"
+          >
+          
+            Bezoeken
+          </a>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <button class="justify-end self-end py-2"
+    (click)="toggleCollapseSmall()">
+      <fa-icon [icon]="faLeft" class="hover:text-[#ffd1e9]"></fa-icon>
+    </button>
+  </div>
+</nav>

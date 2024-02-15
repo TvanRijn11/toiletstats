@@ -1,0 +1,21 @@
+.sort-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .sort-text {
+    margin-right: 0.2em;
+  }
+  
+  .arrow-icon {
+    font-size: 0.8em;
+  }
+  
+  .descending {
+    transform: rotate(180deg);
+  }
+  
+  h2 {
+    margin-bottom: 0; /* Set margin-bottom to 0 to remove the margin */
+  }
+  
