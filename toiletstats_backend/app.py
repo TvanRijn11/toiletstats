@@ -1,10 +1,10 @@
-
+from flask_cors import CORS
 import psycopg2
 from flask import (Flask, request, jsonify)
 from datetime import datetime, timedelta
 
 app = Flask(__name__)
-
+CORS(app)
 
 def get_db_connection():
     conn = psycopg2.connect(host='ep-lucky-band-a2jgohfs.eu-central-1.aws.neon.tech',
@@ -146,4 +146,4 @@ def get_stats():
     })
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host="0.0.0.0")
